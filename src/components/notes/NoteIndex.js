@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const NoteIndex = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Note Index</h1>
       <Link to="/sign_up">Sign Up</Link>
     </div>
   );
 };
 
-export default Home;
+export default NoteIndex;

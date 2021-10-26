@@ -1,14 +1,14 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import Home from "./components/Home";
 import SignUp from "./components/users/SignUp";
+import NoteIndex from "./components/notes/NoteIndex";
 
 const Routes = () => {
   return (
     <HashRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exatc path="/sign_up" component={SignUp} />
+        <Route exact path="/" component={NoteIndex} />
+        <Route exact path="/sign_up" component={SignUp} />
       </Switch>
     </HashRouter>
   );

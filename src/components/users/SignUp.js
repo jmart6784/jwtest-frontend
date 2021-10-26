@@ -37,7 +37,10 @@ const SignUp = (props) => {
         }
         throw new Error("Network response was not ok.");
       })
-      .then((response) => props.history.push("/"))
+      .then((response) => {
+        localStorage.setItem("token", response.token);
+        props.history.push("/");
+      })
       .catch((error) => console.log(error.message));
   };
 

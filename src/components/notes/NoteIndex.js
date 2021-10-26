@@ -23,8 +23,6 @@ const NoteIndex = (props) => {
       .catch(() => props.history.push("/"));
   }, []);
 
-  useEffect(() => console.log(notes), [notes]);
-
   const noNotes = <div>No Notes yet.</div>;
 
   const notesJsx = notes.map((note) => {

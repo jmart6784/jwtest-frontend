@@ -9,8 +9,6 @@ import Static from "./components/static";
 const Routes = () => {
   let loggedIn = !!localStorage.getItem("token");
 
-  console.log("LOG", loggedIn, localStorage.getItem("token"));
-
   return (
     <HashRouter>
       <Nav />

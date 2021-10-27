@@ -39,7 +39,7 @@ const SignIn = (props) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.token);
-        props.history.push("/");
+        props.history.push("/notes");
       })
       .catch((error) => console.log(error.message));
   };

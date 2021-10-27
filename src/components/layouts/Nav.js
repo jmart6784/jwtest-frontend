@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import GlobalContext from "../context/GlobalContext";
 
 const Nav = () => {
+  const [globalContext, setGlobalContext] = useContext(GlobalContext);
   let history = useHistory();
 
   return (
@@ -13,6 +15,11 @@ const Nav = () => {
       <button
         onClick={() => {
           localStorage.removeItem("token");
+          setGlobalContext({
+            domain: globalContext.domain,
+            user: globalContext.user,
+            token: null,
+          });
           history.push("/sign_in");
         }}
       >

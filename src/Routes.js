@@ -9,7 +9,7 @@ import Nav from "./components/layouts/Nav";
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({
     domain: "http://localhost:3000",
-    user: { data: null },
+    user: null,
     token: localStorage.getItem("token"),
   });
 
@@ -31,7 +31,7 @@ const Routes = () => {
       .then((response) => {
         setGlobalContext({
           domain: globalContext.domain,
-          user: { data: response.user },
+          user: response.user,
           token: globalContext.token,
         });
       })

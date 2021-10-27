@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 const SignIn = (props) => {
-  // eslint-disable-next-line no-unused-vars
   const [globalContext, setGlobalContext] = useContext(GlobalContext);
   const [forms, setForms] = useState({
     username: "",
@@ -48,6 +47,29 @@ const SignIn = (props) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.token);
+
+        const url = `${globalContext.domain}/present_user`;
+
+        fetch(url, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${response.token}`,
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((response) => {
+            setGlobalContext({
+              domain: globalContext.domain,
+              user: response.user,
+              token: response.token,
+            });
+          })
+          .catch(() => console.log("current user not found"));
         props.history.push("/notes");
       })
       .catch((error) => console.log(error.message));

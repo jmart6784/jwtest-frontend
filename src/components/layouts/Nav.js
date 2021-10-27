@@ -17,7 +17,7 @@ const Nav = () => {
           localStorage.removeItem("token");
           setGlobalContext({
             domain: globalContext.domain,
-            user: globalContext.user,
+            user: null,
             token: null,
           });
           history.push("/sign_in");

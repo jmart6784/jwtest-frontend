@@ -9,7 +9,8 @@ import Nav from "./components/layouts/Nav";
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({
     domain: "http://localhost:3000",
-    user: { data: { id: "", username: "", age: "" }, token: null },
+    user: { data: null },
+    token: localStorage.getItem("token"),
   });
 
   useEffect(() => {
@@ -30,10 +31,8 @@ const Routes = () => {
       .then((response) => {
         setGlobalContext({
           domain: globalContext.domain,
-          user: {
-            data: response.user,
-            token: response.token,
-          },
+          user: { data: response.user },
+          token: globalContext.token,
         });
       })
       .catch(() => console.log("current user not found"));

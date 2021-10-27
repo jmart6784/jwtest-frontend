@@ -7,6 +7,8 @@ const NoteIndex = (props) => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
+    if (localStorage.getItem("token") === null) props.history.push("/sign_in");
+
     const url = `${globalContext.domain}/notes`;
 
     fetch(url, {

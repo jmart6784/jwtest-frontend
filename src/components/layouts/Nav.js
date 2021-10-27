@@ -8,6 +8,9 @@ const Nav = () => {
 
   return (
     <div>
+      <span>
+        Hello, {globalContext.user ? globalContext.user.username : ""}
+      </span>
       <Link to="/">Index</Link>
       <Link to="/sign_up">Sign Up</Link>
       <Link to="/sign_in">Sign In</Link>

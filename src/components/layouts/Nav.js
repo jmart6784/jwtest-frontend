@@ -8,6 +8,7 @@ const Nav = () => {
     <div>
       <Link to="/">Index</Link>
       <Link to="/sign_up">Sign Up</Link>
+      <Link to="/sign_in">Sign In</Link>
       <Link to="/notes">Notes</Link>
       <button
         onClick={() => {

@@ -9,7 +9,7 @@ import Nav from "./components/layouts/Nav";
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({
     domain: "http://localhost:3000",
-    user: { data: null, token: null },
+    user: { data: { id: "", username: "", age: "" }, token: null },
   });
 
   useEffect(() => {

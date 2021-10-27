@@ -12,6 +12,7 @@ const SignIn = (props) => {
   // Redirect if already signed in
   useEffect(() => {
     if (localStorage.getItem("token")) props.history.push("/notes");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onChange = (event) => {

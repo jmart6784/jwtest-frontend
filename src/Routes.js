@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import GlobalContext from "./components/context/GlobalContext";
 import SignUp from "./components/users/SignUp";
@@ -9,7 +9,40 @@ import Nav from "./components/layouts/Nav";
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({
     domain: "http://localhost:3000",
+    user: { data: null, token: null },
   });
+
+  useEffect(() => {
+    const url = `${globalContext.domain}/present_user`;
+
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then((response) => {
+        setGlobalContext({
+          domain: globalContext.domain,
+          user: {
+            data: response.user,
+            token: response.token,
+          },
+        });
+      })
+      .catch(() => console.log("current user not found"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    console.log("global update", globalContext);
+  }, [globalContext]);
 
   let loggedIn = !!localStorage.getItem("token");
 

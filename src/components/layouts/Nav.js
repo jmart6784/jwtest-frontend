@@ -7,7 +7,6 @@ const Nav = () => {
   return (
     <div>
       <Link to="/">Index</Link>
-      <Link to="/static">Static Page</Link>
       <Link to="/sign_up">Sign Up</Link>
       <Link to="/notes">Notes</Link>
       <button

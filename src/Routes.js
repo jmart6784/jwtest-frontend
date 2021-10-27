@@ -5,7 +5,6 @@ import SignUp from "./components/users/SignUp";
 import SignIn from "./components/users/SignIn";
 import NoteIndex from "./components/notes/NoteIndex";
 import Nav from "./components/layouts/Nav";
-import Static from "./components/static";
 
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({});

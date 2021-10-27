@@ -16,7 +16,7 @@ const Routes = () => {
       <Nav />
       <Switch>
         <Route exact path="/">
-          {loggedIn ? <Redirect to="/notes" /> : <SignIn />}
+          {loggedIn ? <Redirect to="/notes" /> : <Redirect to="/sign_in" />}
         </Route>
         <Route exact path="/notes" component={NoteIndex} />
         <Route exact path="/static" component={Static} />

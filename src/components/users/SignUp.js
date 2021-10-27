@@ -7,6 +7,7 @@ const SignUp = (props) => {
   const [forms, setForms] = useState({
     username: "",
     password_digest: "",
+    age: null,
   });
 
   const onChange = (event) => {
@@ -18,13 +19,15 @@ const SignUp = (props) => {
   const onSubmit = (event) => {
     event.preventDefault();
     const url = `${globalContext.domain}/users`;
-    const { username, password_digest } = forms;
+    const { username, password_digest, age } = forms;
 
-    if (username.length === 0 || password_digest.length === 0) return;
+    if (username.length === 0 || password_digest.length === 0 || age === null)
+      return;
 
     const body = {
       username,
       password_digest,
+      age,
     };
 
     fetch(url, {
@@ -69,6 +72,20 @@ const SignUp = (props) => {
             type="password"
             id="password_digest"
             name="password_digest"
+            required
+            onChange={onChange}
+          />
+        </label>
+
+        <br />
+        <br />
+
+        <label htmlFor="password_digest">
+          <span>Age</span>
+          <input
+            type="number"
+            id="age"
+            name="age"
             required
             onChange={onChange}
           />

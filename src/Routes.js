@@ -7,7 +7,10 @@ import NoteIndex from "./components/notes/NoteIndex";
 import Nav from "./components/layouts/Nav";
 
 const Routes = () => {
-  const [globalContext, setGlobalContext] = useState({});
+  const [globalContext, setGlobalContext] = useState({
+    domain: "http://localhost:3000",
+  });
+
   let loggedIn = !!localStorage.getItem("token");
 
   return (

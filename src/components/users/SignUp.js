@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import GlobalContext from "../context/GlobalContext";
 
 const SignUp = (props) => {
+  // eslint-disable-next-line no-unused-vars
+  const [globalContext, setGlobalContext] = useContext(GlobalContext);
   const [forms, setForms] = useState({
     username: "",
     password_digest: "",
@@ -14,7 +17,7 @@ const SignUp = (props) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const url = "http://localhost:3000/users";
+    const url = `${globalContext.domain}/users`;
     const { username, password_digest } = forms;
 
     if (username.length === 0 || password_digest.length === 0) return;

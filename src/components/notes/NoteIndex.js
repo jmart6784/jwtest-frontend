@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import GlobalContext from "../context/GlobalContext";
 
 const NoteIndex = (props) => {
+  // eslint-disable-next-line no-unused-vars
+  const [globalContext, setGlobalContext] = useContext(GlobalContext);
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:3000/notes";
+    const url = `${globalContext.domain}/notes`;
 
     fetch(url, {
       method: "GET",
@@ -21,6 +23,7 @@ const NoteIndex = (props) => {
       })
       .then((response) => setNotes(response))
       .catch(() => props.history.push("/"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const noNotes = <div>No Notes yet.</div>;

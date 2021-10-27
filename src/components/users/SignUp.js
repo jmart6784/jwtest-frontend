@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 const SignUp = (props) => {
@@ -9,6 +9,11 @@ const SignUp = (props) => {
     password_digest: "",
     age: null,
   });
+
+  // Redirect if already signed in
+  useEffect(() => {
+    if (localStorage.getItem("token")) props.history.push("/notes");
+  }, []);
 
   const onChange = (event) => {
     const { name, value } = event.target;

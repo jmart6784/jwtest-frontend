@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import GlobalContext from "./components/context/GlobalContext";
+import Nav from "./components/layouts/Nav";
 import SignUp from "./components/users/SignUp";
 import SignIn from "./components/users/SignIn";
 import NoteIndex from "./components/notes/NoteIndex";
-import Nav from "./components/layouts/Nav";
+import NoteNew from "./components/notes/NoteNew";
 
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({
@@ -49,9 +50,10 @@ const Routes = () => {
           <Route exact path="/">
             {loggedIn ? <Redirect to="/notes" /> : <Redirect to="/sign_in" />}
           </Route>
-          <Route exact path="/notes" component={NoteIndex} />
           <Route exact path="/sign_up" component={SignUp} />
           <Route exact path="/sign_in" component={SignIn} />
+          <Route exact path="/notes" component={NoteIndex} />
+          <Route exact path="/notes/new" component={NoteNew} />
         </Switch>
       </HashRouter>
     </GlobalContext.Provider>

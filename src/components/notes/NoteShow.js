@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
+import { Link } from "react-router-dom";
 
 const NoteShow = (props) => {
   // eslint-disable-next-line no-unused-vars
@@ -32,6 +33,7 @@ const NoteShow = (props) => {
     <div>
       <h1>Note Show</h1>
       <p>Message {note.message}</p>
+      <Link to={`/notes/edit/${props.match.params.id}`}>Edit</Link>
     </div>
   );
 };

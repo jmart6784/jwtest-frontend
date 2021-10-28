@@ -67,7 +67,7 @@ const NoteNew = (props) => {
         <br />
         <br />
 
-        <button type="submit">Sign In</button>
+        <button type="submit">Create</button>
       </form>
     </div>
   );

@@ -39,10 +39,6 @@ const Routes = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log("global update", globalContext);
-  }, [globalContext]);
-
   let loggedIn = !!localStorage.getItem("token");
 
   return (

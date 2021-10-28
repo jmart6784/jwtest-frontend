@@ -4,6 +4,7 @@ import GlobalContext from "./components/context/GlobalContext";
 import Nav from "./components/layouts/Nav";
 import SignUp from "./components/users/SignUp";
 import SignIn from "./components/users/SignIn";
+import UserShow from "./components/users/UserShow";
 import NoteIndex from "./components/notes/NoteIndex";
 import NoteNew from "./components/notes/NoteNew";
 import NoteShow from "./components/notes/NoteShow";
@@ -54,6 +55,7 @@ const Routes = () => {
           </Route>
           <Route exact path="/sign_up" component={SignUp} />
           <Route exact path="/sign_in" component={SignIn} />
+          <Route exact path="/users/:id" component={UserShow} />
           <Route exact path="/notes" component={NoteIndex} />
           <Route exact path="/notes/new" component={NoteNew} />
           <Route exact path="/notes/edit/:id" component={NoteEdit} />

@@ -33,7 +33,7 @@ const Routes = () => {
       .then((response) => {
         setGlobalContext({
           domain: globalContext.domain,
-          user: response.user,
+          user: response,
           token: globalContext.token,
         });
       })

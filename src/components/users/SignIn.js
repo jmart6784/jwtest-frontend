@@ -47,30 +47,13 @@ const SignIn = (props) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.token);
-
-        const url = `${globalContext.domain}/present_user`;
-
-        fetch(url, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${response.token}`,
-          },
-        })
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
-            }
-            throw new Error("Network response was not ok.");
-          })
-          .then((response) => {
-            setGlobalContext({
-              domain: globalContext.domain,
-              user: response.user,
-              token: response.token,
-            });
-          })
-          .catch(() => console.log("current user not found"));
-        props.history.push("/notes");
+        setGlobalContext({
+          domain: globalContext.domain,
+          user: globalContext.user,
+          token: response.token,
+        });
+        props.history.push("/");
+        window.location.reload();
       })
       .catch((error) => console.log(error.message));
   };

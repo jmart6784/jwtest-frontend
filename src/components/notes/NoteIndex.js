@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import GlobalContext from "../context/GlobalContext";
 
 const NoteIndex = (props) => {
@@ -35,6 +36,7 @@ const NoteIndex = (props) => {
       <div key={note.id}>
         <h3>Message: </h3>
         <p>{note.message}</p>
+        <Link to={`/notes/${note.id}`}>Show</Link>
       </div>
     );
   });

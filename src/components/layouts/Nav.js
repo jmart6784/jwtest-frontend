@@ -10,7 +10,14 @@ const Nav = () => {
     return (
       <div>
         <span>
-          Hello, {globalContext.user ? globalContext.user.username : ""}
+          Hello,{" "}
+          {globalContext.user ? (
+            <Link to={`users/${globalContext.user.id}`}>
+              {globalContext.user.username}
+            </Link>
+          ) : (
+            ""
+          )}
         </span>
         <Link to="/">Home</Link>
         <Link to="/notes">Notes</Link>

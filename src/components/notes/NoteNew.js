@@ -1,10 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 const NoteNew = (props) => {
   // eslint-disable-next-line no-unused-vars
   const [globalContext, setGlobalContext] = useContext(GlobalContext);
   const [forms, setForms] = useState({ message: "" });
+
+  useEffect(() => {
+    if (localStorage.getItem("token") === null) props.history.push("/sign_in");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onChange = (event) => {
     const { name, value } = event.target;

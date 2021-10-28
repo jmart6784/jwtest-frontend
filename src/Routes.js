@@ -7,6 +7,7 @@ import SignIn from "./components/users/SignIn";
 import NoteIndex from "./components/notes/NoteIndex";
 import NoteNew from "./components/notes/NoteNew";
 import NoteShow from "./components/notes/NoteShow";
+import NoteEdit from "./components/notes/NoteEdit";
 
 const Routes = () => {
   const [globalContext, setGlobalContext] = useState({
@@ -55,6 +56,7 @@ const Routes = () => {
           <Route exact path="/sign_in" component={SignIn} />
           <Route exact path="/notes" component={NoteIndex} />
           <Route exact path="/notes/new" component={NoteNew} />
+          <Route exact path="/notes/edit/:id" component={NoteEdit} />
           <Route exact path="/notes/:id" component={NoteShow} />
         </Switch>
       </HashRouter>

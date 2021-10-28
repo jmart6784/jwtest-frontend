@@ -15,6 +15,7 @@ const Nav = () => {
       <Link to="/sign_up">Sign Up</Link>
       <Link to="/sign_in">Sign In</Link>
       <Link to="/notes">Notes</Link>
+      <Link to="/notes/new">Create Note</Link>
       <button
         onClick={() => {
           localStorage.removeItem("token");

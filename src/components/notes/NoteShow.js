@@ -29,11 +29,32 @@ const NoteShow = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const deleteNote = () => {
+    const url = `${globalContext.domain}/notes/${props.match.params.id}`;
+
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then(() => props.history.push("/notes"))
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <div>
       <h1>Note Show</h1>
       <p>Message {note.message}</p>
       <Link to={`/notes/edit/${props.match.params.id}`}>Edit</Link>
+      <button onClick={deleteNote}>Delete</button>
     </div>
   );
 };

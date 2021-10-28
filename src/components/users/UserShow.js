@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 const UserShow = (props) => {
+  // eslint-disable-next-line no-unused-vars
   const [globalContext, setGlobalContext] = useContext(GlobalContext);
   const [user, setUser] = useState({
     id: "",
